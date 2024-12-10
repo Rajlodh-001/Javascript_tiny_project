@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atomburge Remote</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h1>Remote</h1>
+
+        <label id="wifi">WiFi : <span id="ssid"></span></label>
+        <br>
+
+        
+        <br>
+        <div>
+            <button id="btn" class="rect_btn" onclick="button('power');">Power</button>
+        </div>
+
+        <div id="button_space">
+            <button id="btn" onclick="button(1);" class="squre_btn">1</button>
+            <button onclick="button(2);" class="squre_btn">2</button>
+        </div>
+        <div>
+            <button id="btn" onclick="button(3);" class="squre_btn">3</button>
+            <button id="btn" onclick="button(4);" class="squre_btn">4</button>
+        </div>
+        <div>
+            <button id="btn" onclick="button(5);" class="squre_btn">5</button>
+
+        </div>
+        <div id="tmargin">
+            <button id="btn" onclick="button('boost');" class="rect_btn_sm">Boost</button>
+            <button id="btn" onclick="button('led');" class="rect_btn_sm">LED</button>
+        </div>
+
+        <div><button id="btn" onclick="button('timer');" class="rect_btn_sm">Timer</button>
+            <button id="btn" onclick="button('sleep');" class="rect_btn_sm">sleep</button>
+        </div>
+
+
+    </div>
+
+    <script>
+
+
+
+
+        let buttonclk = " ";
+
+     
+
+        let btnp = ""
+
+        
+
+        function button(event) {
+           
+            switch (event) {
+                case "power":
+                    buttonclk ="CF8976";
+                    break;
+
+                case 1:
+                buttonclk ="CF09F6"
+                    break;
+
+                case 2:
+                buttonclk ="CF8976";
+                    break;
+
+                case 3:
+                buttonclk ="CF51AE";
+                    break;
+
+                case 4:
+                buttonclk ="CFC936";
+                    break;
+
+                case 5:
+                buttonclk ="CF11EE";
+                    break;
+
+                case "boost":
+                buttonclk ="CFF10E";
+                    break;
+
+                case "led":
+                buttonclk ="CFE916";
+                    break;
+
+                case "timer":
+                buttonclk ="CF6996";
+                    break;
+
+                case "sleep":
+                buttonclk ="CF718E";
+                    break;
+
+                default : 
+                console.log("end");
+                break;
+            }
+
+            console.log(btnp);
+            tempd();
+        }
+
+        function tempd() {
+            const ssid = document.getElementById("ssid");
+            ssid.textContent = buttonclk;
+        }
+
+
+        // function initaldata() {
+        //     const ssid = document.getElementById("ssid");
+        //     ssid.textContent = buttonclk;
+        // }
+        // initaldata();
+
+
+    </script>
+</body>
+
+</html>

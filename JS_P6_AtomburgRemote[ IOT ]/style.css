@@ -1,0 +1,124 @@
+
+.body{
+    /* border-width: 20px;
+border-color: black; */
+
+
+border-color: black;
+stroke-width: 20px;
+background-color: aquamarine;
+border-radius: 10px;
+
+
+
+
+}
+
+#container{
+    font-family: Arial, sans-serif;
+    text-align :center;
+    font-size: 1.7rem;
+    font-weight: bold;
+
+    border-color: black;
+stroke-width: 20px;
+
+}
+
+
+
+#wifi{
+    text-align: center;
+    padding: 10px 15px;
+}
+
+.rect_btn{
+    font-size: 3rem;
+    margin: 18px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: hsl(0, 78%, 56%);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.rect_btn:hover{
+    background-color:  hsl(0, 78%, 66%);
+}
+.rect_btn:active{
+    background-color: hsl(0, 78%, 76%);
+}
+
+.rect_btn_sm{
+    font-size: 1.2rem;
+    width: 110px;
+    margin: 18px 18px ;
+    padding: 15px 30px ;
+    border-radius: 12px;
+    border: none;
+    background-color: hsl(210, 100%, 50%);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.rect_btn_sm:hover{
+    background-color: hsl(210, 100%, 60%);
+}
+.rect_btn_sm:active{
+    background-color: hsl(210, 100%, 70%);
+}
+
+#tmargin{
+margin-top: 15px;
+}
+
+
+
+.squre_btn{
+    font-size: 3rem;
+    margin: 18px;
+    padding: 15px 30px;
+    border-radius: 10px;
+    border: none;
+    background-color: hsl(210, 100%, 50%);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+.squre_btn:hover{
+    background-color: hsl(210, 100%, 60%);
+}
+.squre_btn:active{
+    background-color: hsl(210, 100%, 70%);
+}
+
+
+input{
+    font-size: 2rem;
+    width: 150px;
+    text-align: center;
+}
+#diceResult{
+    margin: 20px;
+}
+
+#diceImages img{
+    width: 150px;
+    margin: 5px;
+
+}
+
+/* #dicecss{
+
+    height: 50px;
+    width: 50px;
+    border-color: black;
+    stroke-width: 20px;
+    background-color: aquamarine;
+    border-radius: 10px;
+    
+}
+.dice{
+    height: 50px;
+} */
