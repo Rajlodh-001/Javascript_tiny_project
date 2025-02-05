@@ -1,12 +1,14 @@
 
 
 // WeatherAPP
+require('dotenv').config();
+const apikey= process.env.API_KEY;
 
 
 const weatherForm = document.querySelector(".weatherForm");
 const cityInput = document.querySelector(".cityInput");
 const card = document.querySelector(".card");
-const apiKey = "87bd9eedddff50bd6f6468a86dcf544b";
+// const apiKey = .;
 
 weatherForm.addEventListener("submit", async event => {
 
