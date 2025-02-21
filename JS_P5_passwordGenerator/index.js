@@ -1,61 +1,60 @@
-// Random Password Generator
+// // Random Password Generator
 
 
+function generatePassword(passwordLength, includeLowerCase, includeUpperCase, includeNumber, includeSymbols) {
+    if(passwordLength<1000){
+    const lowercaseChar = "abcdefghijklmnopqrstuvwxyz";
+    const uppercaseChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const number = "1234567890";
+    const symbols = "~@#$%^&*()_+{}[]?/,.<>";
 
+    let allowedChars = "";
+    let password = "";
 
+    if (includeLowerCase) allowedChars += lowercaseChar;
+    if (includeUpperCase) allowedChars += uppercaseChar;
+    if (includeNumber) allowedChars += number;
+    if (includeSymbols) allowedChars += symbols;
 
-const passwordLength = 12 ;
+    if (passwordLength <= 0) return "Password length must be at least 1";
+    if (allowedChars.length === 0) return "Select at least one character type";
 
-const includeLowerCase =false;
-const includeUpperCase = false;
-const includeNumber =true;
-const includeSymbols=false;
-
-
-
-function generatePassword(passwordLength, includeLowerCase, includeUpperCase, includeNumber, includeSymbols){
-
-    const lowercaseChar ="abcdefghijklmnopqrstuvwxyz";
-    const uppercaseChar ="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const number ="1234567890";
-    const symbols="~@#$%^&*()_+{}[]?/,.<>";
-
-
-    let allowCahr ="";
-
-    let password ="";
-
-    allowCahr += includeLowerCase ? lowercaseChar :"";
-    allowCahr += includeUpperCase ? uppercaseChar :"";
-    allowCahr += includeNumber ? number : "";
-    allowCahr += includeSymbols ? symbols : "";
-
-    totalcahr = allowCahr.length;
-    console.log(totalcahr)
-
-    if(passwordLength<=0){
-        return `(Password lenth mustbe atleast 1)`;
+    for (let i = 0; i < passwordLength; i++) {
+        const randomIndex = Math.floor(Math.random() * allowedChars.length);
+        password += allowedChars[randomIndex];
     }
-
-    if (allowCahr.length===0){
-        return `(AT least 1 set of character need to be selected)`;
-    }
-    
-    for(let i= 0;i<=passwordLength;i++){
-        const ramdomindex =Math.floor(Math.random()*allowCahr.length+1);
-        password+=allowCahr[ramdomindex]
-        
-    }
-
-    
-
     return password;
-
+}else {
+    throw new Error("PAssword length is to Big")
+}
 }
 
-const password =generatePassword(passwordLength, includeLowerCase, includeUpperCase, includeNumber, includeSymbols)
+function generateAndDisplayPassword() {
+    const length = parseInt(document.getElementById("passwordLength").value);
+    const includeLowerCase = document.getElementById("lowercase").checked;
+    const includeUpperCase = document.getElementById("uppercase").checked;
+    const includeNumber = document.getElementById("numbers").checked;
+    const includeSymbols = document.getElementById("symbols").checked;
 
-console.log(`Generated PAssword ${password}`)
+    // const password = generatePassword(length, includeLowerCase, includeUpperCase, includeNumber, includeSymbols);
+    // document.getElementById("generatedPassword").value = password;
+    const password = generatePassword(length, includeLowerCase, includeUpperCase, includeNumber, includeSymbols);
+    document.getElementById("generatedPassword").innerText = password;
+}
 
+function copyToClipboard() {
+    const passwordText = document.getElementById("generatedPassword").innerText;
 
+    if (!passwordText) {
+        
+        console.log("NO Password to copy !")
+        return;
+    }
 
+    navigator.clipboard.writeText(passwordText).then(() => {
+    
+        console.log("Password copied to clipboard!")
+    }).catch(err => {
+        console.error("Failed to copy: ", err);
+    });
+}
